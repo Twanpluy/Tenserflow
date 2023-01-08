@@ -25,20 +25,20 @@ print(X_train.shape, X_test.shape, Y_train.shape, Y_test.shape)
 print(len(X_train), len(X_test), len(Y_train), len(Y_test))
 
 
-# create a model wit
-#set random seed
-tf.random.set_seed(42)
-insurance_model = tf.keras.Sequential([
-                tf.keras.layers.Dense(10),
-                tf.keras.layers.Dense(1)
-                ])
+# # create a model wit
+# #set random seed
+# tf.random.set_seed(42)
+# insurance_model = tf.keras.Sequential([
+#                 tf.keras.layers.Dense(10),
+#                 tf.keras.layers.Dense(1)
+#                 ])
 
-#compile the model
-insurance_model.compile(loss=tf.keras.losses.mae,
-                        optimizer=tf.keras.optimizers.SGD(learning_rate=0.01),
-                        metrics=["mae"])
-# fit the model
-insurance_model.fit(X_train, Y_train, epochs=100)                        
+# #compile the model
+# insurance_model.compile(loss=tf.keras.losses.mae,
+#                         optimizer=tf.keras.optimizers.SGD(learning_rate=0.01),
+#                         metrics=["mae"])
+# # fit the model
+# insurance_model.fit(X_train, Y_train, epochs=100)                        
 
 
 # add extra expiriments
@@ -81,7 +81,7 @@ insurance_model_4.compile(loss=tf.keras.losses.mae,
                         optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
                         metrics=["mae"])
 # fit the model_4
-history = insurance_model_4.fit(X_train, Y_train, epochs=500)   
+history = insurance_model_4.fit(X_train, Y_train, epochs=500,callbacks=[tf.keras.callbacks.EarlyStopping(patience=10)])   
 
 
 # evaluate the model
@@ -96,4 +96,10 @@ print(f"model_1: {e_im} model_2: {e_im_2} model_3: {e_im_3} model_4: {e_im_4}")
 pd.DataFrame(history.history).plot()
 plt.ylabel("loss")
 plt.xlabel("epochs")
+plt.show()
+
+# check items
+X["age"].plot(kind="hist")
+X["bmi"].plot(kind="hist")
+X["children"].plot(kind="hist")
 plt.show()
