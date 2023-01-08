@@ -97,6 +97,7 @@ model = tf.keras.Sequential([
 # change the optimizer to adam
 model.compile(loss=tf.keras.losses.mae,optimizer = tf.keras.optimizers.Adam(learning_rate=0.01),metrics=["mae"])
 model.fit(tf.expand_dims(X,axis=1),Y,epochs=100)
+model.summary()
 #
 p = model.predict([17.0])
 print(p)
