@@ -25,3 +25,6 @@ print(f"sum : {tf.reduce_sum(B)}")
 print(f"shape: {B.shape}")
 print(f"rank: {tf.size(B)}")
 print(f"ndim: {B.ndim}")
+
+# find variance 
+print(f"variance: {tf.math.reduce_variance(tf.cast(B, dtype=tf.float32))}")
