@@ -1,0 +1,27 @@
+
+# input shape example multiple classification
+
+# batch size
+# width
+# height
+# color
+# shape = [None,224,224,3]
+
+#output shape example multiple classification
+
+# Sushie
+# steak
+# pizza
+# shape = [3]
+
+# example spam mail classification
+
+# batch size
+# sender
+# subject
+# body
+
+# shape = [None,3]
+# OUTPUT = 2
+# TRUE 
+# FALSE
